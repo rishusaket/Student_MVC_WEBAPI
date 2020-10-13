@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Student_MVC.Models.Student>
+
+<h2> List of Students</h2>
+
+<p><button type="button" value="Add" id="btnAdd" data-are="nnnn">AddStudent</button></p>
+
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+@*<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>*@
+@*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+<script src="~/Scripts/DeleteButton.js"></script>
+<script src="~/Scripts/JQDialog.js"></script>
+<script src="~/Scripts/EditStudent.js"></script>
+<table id="employeeTBL" style="border-collapse: collapse" border="1">
+    <thead>
+        <tr>
+            
+            <th>@Html.DisplayNameFor(model => model.name)</th>
+            <th>@Html.DisplayNameFor(model => model.gender)</th>
+            <th>@Html.DisplayNameFor(model => model.location)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    @*@foreach (var student in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(item => student.name)</td>
+                <td>@Html.DisplayFor(item => student.gender)</td>
+                <td>@Html.DisplayFor(item => student.location)</td>
+                <td><button type="button" id="deletebutton" onclick="deleteStudent(@student.Id)">DELETE</button></td>
+                <td><button type="button" id="editbutton" onclick="editStudent(@student.Id,@student.name,@student.gender,@student.location)">Edit</button></td>
+
+            </tr>
+        }*@
+</table>
+
+<form id="addform" display:none>
+    <div id="dialog" class="AddForm">
+        <table>
+            <tr>
+                <td>Name :</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="nameText" /></td>
+            </tr>
+            <tr>
+                <td>Gender :</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="genderText" /></td>
+            </tr>
+            <tr>
+                <td>Location :</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="locationText" /></td>
+            </tr>
+            <tr><td><button type="button" id="AddButton">Create</button></td></tr>
+            <tr><td><button type="button" id="EditButton">Edit</button></td></tr>
+        </table>
+    </div>
+
+</form>
